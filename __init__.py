@@ -6,7 +6,7 @@ import subprocess
 from albert import *
 
 md_iid = "3.1"
-md_version = "1.0"
+md_version = "1.1"
 md_name = "GPaste"
 md_description = "Search and copy/paste from GPaste clipboard history"
 md_license = "MIT"
