@@ -5,7 +5,7 @@ import subprocess
 
 from albert import *
 
-md_iid = "2.3"
+md_iid = "3.1"
 md_version = "1.0"
 md_name = "GPaste"
 md_description = "Search and copy/paste from GPaste clipboard history"
@@ -19,11 +19,21 @@ ICON_URL = "xdg:edit-paste"
 
 
 class Plugin(PluginInstance, TriggerQueryHandler):
-    def __init__(self):
+    def __init__(self) -> None:
         PluginInstance.__init__(self)
-        TriggerQueryHandler.__init__(
-            self, id=md_name, name=md_name, description=md_description, defaultTrigger=DEFAULT_TRIGGER
-        )
+        TriggerQueryHandler.__init__(self)
+
+    def id(self) -> str:
+        return md_name
+
+    def name(self) -> str:
+        return md_name
+
+    def description(self) -> str:
+        return md_description
+
+    def defaultTrigger(self) -> str:
+        return DEFAULT_TRIGGER
 
     def handleTriggerQuery(self, query):
         if not query.isValid:
