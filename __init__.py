@@ -10,9 +10,11 @@ md_version = "1.0"
 md_name = "GPaste"
 md_description = "Search and copy/paste from GPaste clipboard history"
 md_license = "MIT"
-md_url = "https://github.com/hideakitai/albert-gpaste"
-md_authors = "@hideakitai"
+md_url = "https://github.com/hideakitai/albert-plugin-python-gpaste"
+md_authors = ["@hideakitai"]
 md_bin_dependencies = ["gpaste-client"]
+# md_lib_dependencies = []
+# md_platforms = ["linux"]
 
 DEFAULT_TRIGGER = "gp "
 ICON_URL = "xdg:edit-paste"

@@ -1,4 +1,4 @@
-# albert-gpaste
+# albert-plugin-python-gpaste
 
 [Albert](https://albertlauncher.github.io/) Python plugin to search/copy/paste from [GPaste](https://github.com/Keruspe/GPaste) clipboard history
 
