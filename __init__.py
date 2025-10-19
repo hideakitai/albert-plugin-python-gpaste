@@ -14,7 +14,7 @@ def iconFromUrls(_urls: List[str]) -> Icon:
 
 
 md_iid = "4.0"
-md_version = "1.1"
+md_version = "1.2"
 md_name = "GPaste"
 md_description = "Search and copy/paste from GPaste clipboard history"
 md_license = "MIT"
