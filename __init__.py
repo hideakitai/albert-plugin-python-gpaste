@@ -2,11 +2,19 @@
 
 import re
 import subprocess
+from typing import List
 
 from albert import *
 
-md_iid = "3.1"
-md_version = "1.1"
+
+# TODO: albert::iconFromUrls() is not exported in Python API v4.0, so use stub now.
+# TODO: Replace it if albert.iconFromUrls is available in future.
+def iconFromUrls(_urls: List[str]) -> Icon:
+    return makeStandardIcon(StandardIconType.FileIcon)
+
+
+md_iid = "4.0"
+md_version = "1.2"
 md_name = "GPaste"
 md_description = "Search and copy/paste from GPaste clipboard history"
 md_license = "MIT"
@@ -42,7 +50,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
             warning("Invalid query")
             return
 
-        gpaste_items = []
+        gpaste_items: List[StandardItem] = []
 
         try:
             queries = query.string.strip().split()
@@ -99,7 +107,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
 
         return [item for item in items if all(is_match(item["content"], q) for q in queries)]
 
-    def create_gpaste_item(self, item):
+    def create_gpaste_item(self, item) -> StandardItem:
         id = f"gpaste_{item['uuid']}"
         content = item["content"]
         actions = [Action("copy", "Copy to clipboard", lambda c=content: setClipboardText(c))]
@@ -112,6 +120,6 @@ class Plugin(PluginInstance, TriggerQueryHandler):
             id=id,
             text=content,
             subtext=content,
-            iconUrls=[ICON_URL],
+            icon_factory=lambda: iconFromUrls([ICON_URL]),
             actions=actions,
         )
